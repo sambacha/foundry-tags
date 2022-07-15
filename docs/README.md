@@ -8,7 +8,10 @@ author: Sam Bacha
 # Accretive Versioning: an Automated compatibility scheme
 
 >**Note**    
-> Much of this inital ideas come from [Rich Hickey's talk, ['Spec-Ulation'](https://www.youtube.com/watch?v=oyLBGkS5ICk)
+> Much of this inital ideas come from [Rich Hickey's talk, 'Spec-Ulation'](https://www.youtube.com/watch?v=oyLBGkS5ICk)     
+> The slides are taken from his presentation 
+
+---
 
 slide title: "Semantic" Versioning
                   "Semantics"
@@ -25,7 +28,7 @@ slide title: "Semantic" Versioning
 
   + "you're screwed"
 
-
+---
 
 Precisely because SemVer is a sociological and not only a technical contract, the problem is tractable: We define a breaking change as above, and accept the reality that some changes are not preventable (but may in many cases be mitigated or fixed automatically). This is admittedly unsatisfying, but we believe it satisfies our constraints.
 
@@ -34,9 +37,47 @@ We see two orthogonal problems when importing an external module:
 - Availability: Will A be available at the host site?
 - Compatibility: Will the version of A available at the host be compatible with P?
 
+
+```
+slide title: Recognizing Collections
+
++ You only 'change' a collection by adding/
+  removing members
+
++ Adding = growth, removing = breakage
+
++ Namespaces - collections of vars/fns
+
++ Artifacts - collections of namespaces/packages
+
++ Don't conflate levels!
+
+  + My family doesn't change when I put on a hat
+```
+
+```
+slide title: Breaking Changes are
+                  _Broken_
+
++ Full stop
+
++ Don't do it
+
++ Don't try to figure out the best way to do it
+
++ Avoid _breakage_ by turning it into _accretion_
+
+  + old and new can co-exist
+```
+
+
 ## Motivation
 
 This specification aims to provide a versioning format such that in this context it is a `providing` format/context vs. a r`equiring` format/context.
+
+This specification solves the problem that you do not know you have.  And that problem is the intense anxiety and pressure you feel when dealing with mutability on an ongoing basis.[^1]
+
+[^1]:https://github.com/jafingerhut/jafingerhut.github.com/blob/bac71ac5a1356334bd11b9d17866731310e1ccf6/transcripts/2016-dec-rich-hickey-spec-ulation.txt#L1221-#L1224
 
 ## ABI
 
@@ -207,6 +248,38 @@ message Contract {
 
 package ethereum.versioning.schema.abiV2;
 ```
+
+
+## Summary
+
+### The Only Truth is Runtime
+
+```
+slide title: What If We Never
+               Broke Anything?
+
++ names become enduringly meaningful
+
++ orthogonal compatibility checking becomes
+  possible
+
++ fine-grained deps can be explored
+
++ use the latest with impunity
+
++ compose with impunity
+```
+You should value exchange over change.
+
+Writing libraries for other people to use is about exchanging.  If you
+need to change it, you need to be considerate, because the primary
+thing is exchange, not change.
+
+there are two really good ways to do this.  One is to grow your
+software.  Just grow it.  The other is to turn what would have been
+breaking into accretion.  In other words, if you are going to have a
+variant, give birth to a variant.  Do not muck with a thing.
+
 ---
 
 ### References 
