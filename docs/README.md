@@ -125,7 +125,17 @@ Accretive versioning is based on matching type signatures against a generated AB
 
 Contract Interface names MUST NOT use the following [Unicode] characters:
 
+The data object called ".metadata" has a special meaning: It cannot be accessed from code and is always appended to the very end of the bytecode, regardless of its position in the object.
+
+Other data objects with special significance might be added in the future, but their names will always start with a ..
+[see specification of yul object](https://docs.soliditylang.org/en/v0.8.15/yul.html#specification-of-yul-object)
 <pre>
+
+.
+.metadata
+
+FULL STOP . (U+002E) 46
+
 SOLIDUS: / (U+002F)
 
 QUOTATION MARK: " (U+0022)
